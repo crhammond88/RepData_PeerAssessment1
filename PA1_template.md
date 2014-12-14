@@ -121,6 +121,7 @@ Calculate and plot the average number of steps taken at each 5-minute interval s
 ```r
 averageSplit <- aggregate(myData$steps, by=list(myData$interval, myData$daytype), FUN=mean)
 names(averageSplit) <- c("interval","daytype","steps")
+library(ggplot2)
 qplot(interval, steps, data=averageSplit, facets=daytype ~ ., geom="line", xlab="Time", 
   ylab="Average Steps Taken", main="Average Steps Taken by Time for Weekdays and Weekends")
 ```

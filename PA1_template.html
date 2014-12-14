@@ -308,6 +308,7 @@ myData[,&quot;daytype&quot;] &lt;- as.factor(myData[,&quot;daytype&quot;])
 
 <pre><code class="r">averageSplit &lt;- aggregate(myData$steps, by=list(myData$interval, myData$daytype), FUN=mean)
 names(averageSplit) &lt;- c(&quot;interval&quot;,&quot;daytype&quot;,&quot;steps&quot;)
+library(ggplot2)
 qplot(interval, steps, data=averageSplit, facets=daytype ~ ., geom=&quot;line&quot;, xlab=&quot;Time&quot;, 
   ylab=&quot;Average Steps Taken&quot;, main=&quot;Average Steps Taken by Time for Weekdays and Weekends&quot;)
 </code></pre>
